@@ -1,0 +1,18 @@
+.sidebar{
+    background-color: azure;
+    width: 300px;
+    height: 680px;
+}
+.query{
+    height: 300px;
+    overflow: scroll;
+}
+
+.tables{
+    overflow: scroll;
+    height: 400px;
+}
+
+.sqlresult{
+    width: 79.75vw;
+}
