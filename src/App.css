@@ -1,6 +1,6 @@
 .sidebar{
     background-color: azure;
-    width: 300px;
+    width: 30vw;
     height: 680px;
 }
 .query{
@@ -14,5 +14,5 @@
 }
 
 .sqlresult{
-    width: 79.75vw;
+    width: 70vw;
 }

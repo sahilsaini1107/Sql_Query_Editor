@@ -5,7 +5,7 @@ const SqlEditor = () => {
     <div>
       <Editor
       height ='39.2vh'
-      width ='79.75vw'
+      width ='70vw'
       theme = 'vs-dark'
       defaultLanguage='sql'
       ></Editor>
