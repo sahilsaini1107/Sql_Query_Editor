@@ -6,24 +6,25 @@ import SqlEditor from './components/SqlEditor'
 import Result from './components/Result'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [code, setCode] = useState('// hi sql')
+  function updateCode(val){
+    setCode(val);
+  }
   return (
     <>
       <Navbar></Navbar>
-      <div className='conatiner flex'>
+      <div className='container flex'>
         <div className='w-89'>
-        <Sidebar></Sidebar>
+        <Sidebar setcode ={updateCode}></Sidebar>
         </div>
         <div className='w-12'>
           <div>
-          <SqlEditor></SqlEditor>
+          <SqlEditor code = {code}></SqlEditor>
           </div>
           <div className="sqlresult">
           <Result></Result>
           </div>
         </div>
-        
       </div>
     </>
   )

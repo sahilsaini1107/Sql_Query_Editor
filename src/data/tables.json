@@ -1,0 +1,73 @@
+[
+    {
+        "tableName": "customers",
+        "tableSchema": {
+            "key": 0,
+            "customerID": "THEBI",
+            "companyName": "The Big Cheese",
+            "contactName": "Liz Nixon",
+            "contactTitle": "Marketing Manager",
+            "address": "89 Jefferson Way Suite 2",
+            "city": "Portland",
+            "region": "OR",
+            "postalCode": 97201,
+            "country": "USA",
+            "phone": "(503) 555-3612",
+            "fax": "NULL"
+        } 
+    },
+    {
+        "tableName": "products",
+        "tableSchema": {
+            "key": 1,
+            "productID": 76,
+            "productName": "Lakkalikööri",
+            "supplierID": 23,
+            "categoryID": 1,
+            "quantityPerUnit": "500 ml",
+            "unitPrice": 18,
+            "unitsInStock": 57,
+            "unitsOnOrder": 0,
+            "reorderLevel": 20,
+            "discontinued": 0
+        }
+    },
+    {
+        "tableName": "suppliers",
+        "tableSchema": {
+            "key": 2,
+            "supplierID": 29,
+            "companyName": "Forêts d'érables",
+            "contactName": "Chantal Goulet",
+            "contactTitle": "Accounting Manager",
+            "address": "148 rue Chasseur",
+            "city": "Ste-Hyacinthe",
+            "region": "Québec",
+            "postalCode": "J2S 7S8",
+            "country": "Canada",
+            "phone": "(514) 555-2955",
+            "fax": "(514) 555-2921",
+            "homePage": "NULL"
+        }
+    },
+    {
+        "tableName": "orders",
+        "tableSchema": {
+            "key": 3,
+            "orderID": 11077,
+            "customerID": "RATTC",
+            "employeeID": 1,
+            "orderDate": "1998-05-06 00:00:00.000",
+            "requiredDate": "1998-06-03 00:00:00.000",
+            "shippedDate": "NULL",
+            "shipVia": 2,
+            "freight": 8.53,
+            "shipName": "Rattlesnake Canyon Grocery",
+            "shipAddress": "2817 Milton Dr.",
+            "shipCity": "Albuquerque",
+            "shipRegion": "NM",
+            "shipPostalCode": 87110,
+            "shipCountry": "USA"
+        }
+    }
+]
