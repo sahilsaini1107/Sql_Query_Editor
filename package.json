@@ -13,7 +13,8 @@
     "@monaco-editor/react": "^4.6.0",
     "react": "^18.2.0",
     "react-csv": "^2.2.2",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "terser": "^5.26.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import './App.css'
+import { useEffect, useState, useCallback } from "react";
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import SqlEditor from './components/SqlEditor'
@@ -9,53 +8,46 @@ function App() {
   const [tableRows, setTableRows] = useState([]);
   const [tableHead, setTableHead] = useState([]);
   const [query, setQuery] = useState("");
-  const [defaultValue, setDefaultValue] = useState(1);
   const [csvData, setCsvData] = useState([]);
-  const [code, setCode] = useState('')
+  const [code, setCode] = useState('');
+  const [defaultValue, setDefaultValue] = useState(1);
 
-  function updateCode(val){
+  const updateCode = useCallback((val) => {
     setCode(val);
-  }
+  }, []);
 
   useEffect(() => {
-    if (code.toLowerCase() === "select * from customers;") {
+    const codeLower = code.toLowerCase();
+    if (codeLower === "select * from customers;") {
       setDefaultValue(0);
-    } else if (code.toLowerCase() === "select * from products;") {
+    } else if (codeLower === "select * from products;") {
       setDefaultValue(1);
-    } else if (code.toLowerCase() === "select * from suppliers;") {
+    } else if (codeLower === "select * from suppliers;") {
       setDefaultValue(2);
-    } else if (code.toLowerCase() === "select * from orders;") {
+    } else if (codeLower === "select * from orders;") {
       setDefaultValue(3);
     } else {
-      let codeValue = code.toLowerCase().split(" ");
-      let found = false;
-      for (let i = 0; i < codeValue.length && !found; i++) {
+      const codeValue = codeLower.split(" ");
+      for (let i = 0; i < codeValue.length; i++) {
         switch (codeValue[i]) {
           case "customers":
             setDefaultValue(0);
-            found = true;
-            break;
+            return;
           case "products":
             setDefaultValue(1);
-            found = true;
-            break;
+            return;
           case "suppliers":
             setDefaultValue(2);
-            found = true;
-            break;
+            return;
           case "orders":
             setDefaultValue(3);
-            found = true;
-            break;
+            return;
           default:
             setDefaultValue(5);
-            break;
         }
       }
     }
   }, [code]);
-  
-
 
   return (
     <>
@@ -66,17 +58,17 @@ function App() {
         setCsvData={setCsvData}
         code={code}
         defaultValue={defaultValue}
-      ></Navbar>
+      />
       <div className='container flex'>
         <div className='w-89'>
-        <Sidebar setcode ={updateCode}></Sidebar>
+          <Sidebar setcode={updateCode} />
         </div>
         <div className='w-12'>
           <div>
-          <SqlEditor code = {code} setcode ={updateCode}></SqlEditor>
+            <SqlEditor code={code} setcode={updateCode} />
           </div>
           <div className="sqlresult">
-          <Result query={query} head={tableHead} rows={tableRows} Data={csvData}></Result>
+            <Result query={query} head={tableHead} rows={tableRows} Data={csvData} />
           </div>
         </div>
       </div>
@@ -84,4 +76,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
