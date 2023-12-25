@@ -11,7 +11,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [defaultValue, setDefaultValue] = useState(1);
   const [csvData, setCsvData] = useState([]);
-  const [code, setCode] = useState('select * from customers;')
+  const [code, setCode] = useState('')
 
   function updateCode(val){
     setCode(val);
@@ -26,10 +26,35 @@ function App() {
       setDefaultValue(2);
     } else if (code.toLowerCase() === "select * from orders;") {
       setDefaultValue(3);
-    } else{
-      setDefaultValue(5)
+    } else {
+      let codeValue = code.toLowerCase().split(" ");
+      let found = false;
+      for (let i = 0; i < codeValue.length && !found; i++) {
+        switch (codeValue[i]) {
+          case "customers":
+            setDefaultValue(0);
+            found = true;
+            break;
+          case "products":
+            setDefaultValue(1);
+            found = true;
+            break;
+          case "suppliers":
+            setDefaultValue(2);
+            found = true;
+            break;
+          case "orders":
+            setDefaultValue(3);
+            found = true;
+            break;
+          default:
+            setDefaultValue(5);
+            break;
+        }
+      }
     }
   }, [code]);
+  
 
 
   return (
@@ -48,7 +73,7 @@ function App() {
         </div>
         <div className='w-12'>
           <div>
-          <SqlEditor code = {code}></SqlEditor>
+          <SqlEditor code = {code} setcode ={updateCode}></SqlEditor>
           </div>
           <div className="sqlresult">
           <Result query={query} head={tableHead} rows={tableRows} Data={csvData}></Result>

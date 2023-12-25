@@ -1,6 +1,13 @@
 import Editor from '@monaco-editor/react';
+import React, { useState } from 'react';
 
-const SqlEditor = ({code}) => {
+const SqlEditor = ({code, setcode}) => {
+  const [editorValue, setEditorValue] = useState('');
+  const handleEditorChange = (newValue) => {
+    setEditorValue(newValue);
+    setcode(newValue);
+  };
+
   const options = {
     autoIndent: 'full',
     contextmenu: true,
@@ -32,6 +39,7 @@ const SqlEditor = ({code}) => {
       defaultLanguage='sql'
       options={options}
       value={code}
+      onChange={(value)=>handleEditorChange(value)}
       ></Editor>
     </div>
   )

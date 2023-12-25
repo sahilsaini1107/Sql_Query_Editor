@@ -1,8 +1,18 @@
-# React + Vite
+# SQL-Query-Editor
+![tt](./src/assets/Screenshot%20(124).png)
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a basic Sql query editor which show the output for the given query. I have provided some predefined quries to run as well as the information about the tables which ar available to user.
 
-Currently, two official plugins are available:
+## What I have use
+    - reactjs
+    - monaco-editor/react
+    - tailwind css
+    - react-csv
+    - vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo
+You can play around with this editor here : [SQL-Query-Editor](https://sql-query-editor-mauve.vercel.app)
+
+
+## ⏱ Page Load Time
