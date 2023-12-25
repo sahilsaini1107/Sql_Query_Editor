@@ -1,4 +1,3 @@
-import React from 'react';
 import schema from '../data/tables.json';
 import {useState} from 'react';
 const Tables = () => {
